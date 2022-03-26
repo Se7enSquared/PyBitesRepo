@@ -9,6 +9,3 @@ def gen_special_pybites_dates():
     while True:
         yield born + timedelta(days=100)
         born = born + timedelta(days=100)
-
-# gen = gen_special_pybites_dates()
-# print(list(islice(gen, 10)))
