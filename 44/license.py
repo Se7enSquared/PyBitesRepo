@@ -15,8 +15,8 @@ def gen_key(parts: int = 4, chars_per_part: int = 8) -> str:
     """
 
     alphabet = string.ascii_uppercase + string.digits
-    password = ''
+    key = ''
     for i in range(parts):
-        password += ''.join(secrets.choice(alphabet) for i in range(chars_per_part))
-        password += '-'
-    return password[:-1]
+        key += ''.join(secrets.choice(alphabet) for i in range(chars_per_part))
+        key += '-'
+    return key[:-1]
