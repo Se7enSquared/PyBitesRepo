@@ -14,4 +14,4 @@ def get_person_age(name):
     try:
         return merged_dict[name.lower()]
     except:
-        return 'Not found'
+        return NOT_FOUND
