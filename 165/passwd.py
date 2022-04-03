@@ -38,7 +38,7 @@ artagnon:x:1005:1005:Ramkumar R,,,,Git GSOC:/home/artagnon:/bin/bash"""
 def get_users_for_shell(passwd_output: str = PASSWD_OUTPUT,
                         grep_shell: str = DEFAULT_SHELL) -> list:
     """Match the passwd_output string for users with grep_shell.
-       Return a list of users.
+        Return a list of users.
     """
     rows = []
     for line in passwd_output.splitlines():
