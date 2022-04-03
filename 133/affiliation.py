@@ -10,5 +10,3 @@ def generate_affiliation_link(url):
     else:
         middle_part = get_middle[:last_delim]
         return first_part + middle_part + last_part
-
-generate_affiliation_link('https://www.amazon.com.au/Python-Cookbook-3e-David-Beazley/dp/1449340377/')
