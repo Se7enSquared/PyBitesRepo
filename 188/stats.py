@@ -55,6 +55,3 @@ def create_stats_report(data=None):
     )
 
     return STATS_OUTPUT.format(**stats)
-
-
-get_all_line_counts()

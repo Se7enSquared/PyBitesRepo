@@ -1,6 +1,6 @@
 import inspect
 
-from countdown import countdown_for, countdown_recursive
+from countdowns import countdown_for, countdown_recursive
 
 expected = '''10
 9

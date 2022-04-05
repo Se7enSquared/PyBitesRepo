@@ -1,6 +1,6 @@
 import re
 
-from license import gen_key
+from gen_license import gen_key
 
 default_key = re.compile(r'^([A-Z0-9]{8}-){3}[A-Z0-9]{8}$')
 shorter_key = re.compile(r'^([A-Z0-9]{4}-){2}[A-Z0-9]{4}$')
