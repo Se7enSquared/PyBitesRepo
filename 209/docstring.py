@@ -6,6 +6,7 @@ def sum_numbers(numbers):
     ...
     :raises TypeError: if not all numeric values passed in
     ...
+    :return: sum of numbers
     :rtype: int
     """
     pass
