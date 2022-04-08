@@ -5,7 +5,7 @@ from workouts import print_workout_days, WORKOUTS
 
 @pytest.mark.parametrize(
     "n, expected",
-    [("upper body #1", "Mon\n"), ("30", "Wed\n"), ("upper", "Mon, Thu")],
+    [("upper body #1", "Mon\n"), ("30", "Wed\n"), ("upper", "Mon, Thu\n")],
 )
 def test_print_workout_days(capsys, n, expected):
     print_workout_days(n)
