@@ -2,7 +2,7 @@ import string
 
 import pandas as pd
 
-import series as se
+import series1 as se
 
 
 def test_basic_series():
