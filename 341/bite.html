@@ -1,0 +1,12 @@
+<p>In order to measure daily food intake as a user our current <code>Food</code> model is not enough. We also need <code>User</code> and <code>FoodEntry</code> models, so let's create them!</p>
+<p>In database-speak, <code>FoodEntry</code> is a <em>many-to-many</em> relation between <code>User</code> and <code>Food</code>. Users would add <em>many</em> foods and foods will be added by <em>many</em> users.</p>
+<p>For this learning path, we'll work with these Pydantic models in memory to keep things simpler. In the SQLModel learning path we'll use a database.</p>
+<p>Create the <code>User</code> and <code>FoodEntry</code> models based on what you learned <a href="../../../../../bites/337/" target="_blank" rel="noopener">in the second FastAPI Bite</a> in this series.</p>
+<p>Required attributes and their types:</p>
+<p><strong>User</strong></p>
+<p>- <code>id</code> -&gt; int<br />- <code>username</code> -&gt; <code>str</code><br />- <code>password</code> -&gt; <code>str</code> (needed for authentication later)</p>
+<p>* For <code>password</code> override the constructor (<code>__init__.py</code>) to hash the password upon creation of the module. You can use the provided <code>get_password_hash()</code>&nbsp;function for this.</p>
+<p><strong>FoodEntry</strong></p>
+<p>- <code>id</code> -&gt; <code>int</code> (what in a DB would be the <em>primary key</em>)<br />- <code>user</code> -&gt; <code>User</code> (here we see that Pydantic models can be nested)<br />- <code>food</code> -&gt; <code>Food</code> (from previous Bite and provided in the template)<br />- <code>date_added</code> -&gt; <code>datetime</code> (defaults to <code>datetime.now()</code>)<br />- <code>number_servings</code> -&gt; <code>float</code> (fitness nerds can be quite exact about this)</p>
+<p>* Additionally add a <em>property</em> to calculate the total calories of a food entry (<code>number_servings * food.kcal_per_serving</code>) and call it <code>total_calories</code>.</p>
+<p>Good luck and in the next Bite we'll expand our API to work with these new objects.</p>
