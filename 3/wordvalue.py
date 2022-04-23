@@ -26,19 +26,13 @@ LETTER_SCORES = {
 def load_words():
     """Load the words dictionary (DICTIONARY constant) into a list and return it"""
     with open(DICTIONARY, 'r') as f:
-        word_list = [word.rstrip('\n') for word in f.readlines()]
-    return word_list
+        return = [word.rstrip('\n') for word in f.readlines()]
+
 
 
 def calc_word_value(word):
     """Given a word calculate its value using the LETTER_SCORES dict"""
-    score = 0
-    for letter in word:
-        for score_tuple in scrabble_scores:
-            if letter.upper() in score_tuple[1].split(" "):
-                score += score_tuple[0]
-                continue
-    return score
+    return sum(LETTER_SCORES.get(char.upper(), 0) for char in word)
 
 
 
