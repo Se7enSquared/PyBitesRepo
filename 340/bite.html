@@ -1,0 +1,14 @@
+<p>Now that we're able to create and retrieve <code>Food</code> objects, it's time to add code to update and delete them.</p>
+<p>Create the two corresponding endpoints:</p>
+<p>1. To update, the API should</p>
+<p>&nbsp; &nbsp;1. receive a <code>PUT</code> request with the <code>Food</code> object's id and new / updated object</p>
+<p>&nbsp; &nbsp;2. update the item in the <code>foods</code> dictionary (to keep it simple, no need to update individual attributes, just swap out the whole <code>Food</code> object matching its <code>id</code>)</p>
+<p>&nbsp; &nbsp;3. return the updated item.</p>
+<p>2. To delete the API should</p>
+<p>&nbsp; &nbsp;1. receive a <code>DELETE</code> request with the id of the <code>food</code> to be deleted</p>
+<p>&nbsp; &nbsp;2. delete it from the <code>foods</code> dictionary</p>
+<p>&nbsp; &nbsp;3. return a respone of <code>{"ok": True}</code> (as found <a href="https://sqlmodel.tiangolo.com/tutorial/fastapi/delete/#delete-path-operation" target="_blank" rel="noopener">here</a>).</p>
+<p>* We use <code>PUT</code> because we're replacing the whole item. For a partial update, <code>PATCH</code> would be the more appropriate HTTP verb / action.</p>
+<p>For both endpoints raise an <code>HTTPException</code> with a <code>status_code</code> of <code>404</code> and message (<code>detail</code>) of <code>Food not found</code>, when the <code>id</code> passed in is not in the <code>foods</code> dictionary.</p>
+<p><strong>WIN</strong>: You have a simple API for food objects up and running with minimal code! We still need to add authentication, but first we'll make two more Pydantic models so that a user can start logging daily food intake.</p>
+<p>&nbsp;</p>
