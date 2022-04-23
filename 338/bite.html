@@ -1,0 +1,8 @@
+<p>Now with the Pydantic <code>Food</code> model defined we can start creating objects through FastAPI. Exciting!</p>
+<p>In this Bite you will make a <code>create_food()</code> endpoint that receives a <code>Food</code> object payload and adds the food to a dictionary. We use an in memory data structure to keep things simple for starters. The endpoint should also return a <code>status_code</code> of <code>201</code> upon successful creation.</p>
+<p>The <code>foods</code> dictionary will hold the food ids integers as keys and the <code>Food</code> objects as values.</p>
+<p>After creation of a <code>food</code> object, <code>foods</code> will effectively hold the following (taken from the tests):</p>
+<pre>(Pdb) foods<br />{1: Food(id=1, name='egg', serving_size='piece', kcal_per_serving=78, protein_grams=6.3, fibre_grams=0)}</pre>
+<p>Note that we realize working with a <em>global</em> object is not ideal, but we wanted to separate FastAPI from SQLModel to teach this in a gradual manner.</p>
+<p>Also this just teaches the <em>happy path</em>. In a later Bite we have you add some exception handling in case the object already exists or could not be created.</p>
+<p>So go ahead and write this endpoint and look at the tests to see how we validate the code. Have fun!</p>
