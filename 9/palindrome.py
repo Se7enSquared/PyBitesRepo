@@ -1,6 +1,7 @@
 """A palindrome is a word, phrase, number, or other sequence of characters
 which reads the same backward as forward"""
 import os
+import re
 import urllib.request
 import string
 
@@ -23,8 +24,7 @@ def is_palindrome(word):
     It should work for phrases too so strip all but alphanumeric chars.
     So "No 'x' in 'Nixon'" should pass (see tests for more)"""
 
-    word = word.translate(str.maketrans('', '', string.punctuation)).strip().replace('’', '').lower().replace(' ', '')
-
+    word = re.sub(r'\W+', '', word.lower())
     return word == word[::-1]
 
 
@@ -34,11 +34,5 @@ def get_longest_palindrome(words=None):
     to populate the words list"""
     if words is None:
         words = load_dictionary()
-    max_len = 0
-    max_word = ""
-    for word in words:
-        if is_palindrome(word):
-            word_length = len(word)
-            if word_length > max_len:
-                max_len, max_word = word_length, word
-    return max_word
+    palindromes = (word for word in words if is_palindrome(word))
+    return max(palindromes, key=len)
