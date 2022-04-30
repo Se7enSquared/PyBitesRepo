@@ -1,0 +1,5 @@
+<p>In this Bite we will look at this short server <a href="https://bites-data.s3.us-east-2.amazonaws.com/messages.log" target="_blank" rel="noopener">log</a>, finding the <strong>first </strong>and <strong>last</strong>&nbsp;system shutdown events:</p>
+<pre>INFO 2014-07-03T23:27:51 supybot Shutdown initiated.<br />...<br />INFO 2014-07-03T23:31:22 supybot Shutdown initiated.</pre>
+<p>You'll need to calculate the time between these two events. First extract the timestamps from the log entries and convert them to <code>datetime</code> objects. Then use <code>datetime.timedelta</code> to calculate the time difference between them.</p>
+<p>You can assume the log is sorted in ascending order. Check out each function's <code>docstring</code> and the <strong>TESTS</strong> for more details on how to solve this Bite.</p>
+<p>Good luck, keep calm, and code in Python!</p>
