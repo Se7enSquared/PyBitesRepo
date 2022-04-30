@@ -25,17 +25,17 @@ class UserDoesNotExist(Exception):
         self.message = 'User does not exist'
         super().__init__(self.message)
 
+def _get_user(username):
+    users = {user.name: user for user in USERS}
+    return users.get(username)
 
 def get_secret_token(username):
-    found = False
-    for user in USERS:
-        if user.name == username:
-            found = True
-            if user.expired:
-                raise UserAccessExpired()
-            if user.role != ADMIN:
-                raise UserNoPermission()
-
-    if not found:
+    user = _get_user(username)
+    if not user:
         raise UserDoesNotExist()
+    if user.expired:
+        raise UserAccessExpired()
+    if user.role != ADMIN:
+        raise UserNoPermission()
+
     return SECRET
