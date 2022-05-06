@@ -5,7 +5,7 @@ import pandas as pd
 def return_at_index(ser: pd.Series, idx: int) -> object:
     """Return the Object at the given index of the Series
     If you want to be extra careful catch and raise an error if
-       the index does not exist.
+    the index does not exist.
     """
     return ser.iloc[idx]
 
