@@ -7,4 +7,3 @@ def make_html(element):
             return f'<{element}>{func(*args, **kwargs)}</{element}>'
         return wrapper_function
     return decorator_function
-            

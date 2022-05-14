@@ -43,5 +43,3 @@ def get_harry_most_common_word():
 
     count_words = Counter(filtered_list)
     return count_words.most_common(10)[0]
-
-print(get_harry_most_common_word())
