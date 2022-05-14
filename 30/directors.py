@@ -28,12 +28,15 @@ def get_movies_by_director():
         # skip the header row
         next(csv_reader)
         for row in csv_reader:
-            director = row[1]
-            title = row[11].strip("\xa0")
-            year = row[23]
-            if year == '' or int(year) < MIN_YEAR:
+            try:
+                director = row[1]
+                title = row[11].strip("\xa0")
+                year = int(row[23])
+                score = float(row[25])
+            except ValueError:
                 continue
-            score = float(row[25])
+            if year and int(year) < MIN_YEAR:
+                    continue
             directors[director].append(Movie(title, year, score))
     return directors
 
