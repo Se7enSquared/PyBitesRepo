@@ -5,7 +5,7 @@ def transpose(data):
         values = tuple(data.values())
         output.append(keys)
         output.append(values)
-    if isinstance(data, list):
+    else:
         names = []
         since_days = []
         karma_points = []
@@ -19,6 +19,4 @@ def transpose(data):
         output.append(tuple(since_days))
         output.append(tuple(karma_points))
         output.append(tuple(bitecoin_earned))
-    else:
-        raise ValueError('unrecognized data type')
     return output
