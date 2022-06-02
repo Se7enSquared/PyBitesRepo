@@ -13,6 +13,4 @@ def calculate_gc_content(sequence):
 
     total_seq = sum(counter.values())
     g_c = sum(v for k, v in counter.items() if k.lower() in ('g', 'c'))
-    gc_content = round(Decimal((g_c / total_seq) * 100), 2)
-
-    return gc_content
+    return round(Decimal((g_c / total_seq) * 100), 2)

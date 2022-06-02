@@ -16,7 +16,7 @@ def text_to_columns(text):
 
     cols = []
 
-    for i in range(rows + 1):
+    for _ in range(rows + 1):
         cols.append(text[start:end])
         start += COL_WIDTH
         end += COL_WIDTH

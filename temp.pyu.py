@@ -1,8 +1,5 @@
 def encode(strs):
-    encoded_str = ''
-    for item in strs:
-        encoded_str += item + ':>:>'
-    return encoded_str
+    return ''.join(f'{item}:>:>' for item in strs)
 """
 @param: str: A string
 @return: dcodes a single string to a list of strings

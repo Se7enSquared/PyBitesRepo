@@ -8,10 +8,7 @@ def _char_length(pw: str, low: int, high: int):
     return len(pw) >= low and len(pw) <= high
 
 def _has_digit(pw: str):
-    for x in pw:
-        if x.isdigit():
-            return True
-    return False
+    return any(x.isdigit() for x in pw)
 
 def _has_2_lower(pw: str):
     count = 0
@@ -23,23 +20,17 @@ def _has_2_lower(pw: str):
     return False
 
 def _has_1_upper(pw: str):
-    if pw.islower():
-        return False
-    return True
+    return not pw.islower()
 
 def _has_punctuation(pw: str):
-    for x in pw:
-        if x in PUNCTUATION_CHARS:
-            return True
-    return False
+    return any(x in PUNCTUATION_CHARS for x in pw)
 
 def _not_used_previously(pw: str):
     return pw not in used_passwords
 
 def validate_password(password):
-    validations = []
+    validations = [_char_length(password, low=6, high=12)]
 
-    validations.append(_char_length(password, low=6, high=12))
     validations.append(_has_digit(password))
     validations.append(_has_2_lower(password))
     validations.append(_has_1_upper(password))

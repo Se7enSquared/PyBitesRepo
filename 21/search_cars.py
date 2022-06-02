@@ -39,9 +39,7 @@ def get_all_matching_models(
     models = []
     grep = grep.lower()
     for lst in cars.values():
-        for model in lst:
-            if model.lower().find(grep) != -1:
-                models.append(model)
+        models.extend(model for model in lst if model.lower().find(grep) != -1)
     return sorted(models)
 
 
@@ -50,7 +48,4 @@ def sort_car_models(cars: CarsType = cars) -> CarsType:
     Loop through the cars dict returning a new dict with the
     same keys and the values sorted alphabetically.
     """
-    new_dict = {}
-    for car, model in cars.items():
-        new_dict[car] = sorted(model)
-    return new_dict
+    return {car: sorted(model) for car, model in cars.items()}

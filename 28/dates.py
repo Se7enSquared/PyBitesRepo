@@ -32,9 +32,9 @@ def get_month_most_posts(dates):
        that occurs most"""
     months = []
     for date in dates:
-        month = str(date.month) if len(str(date.month)) > 2 else '0' + str(date.month)
+        month = str(date.month) if len(str(date.month)) > 2 else f'0{str(date.month)}'
         year = str(date.year)
-        months.append(year + '-' + month)
-    
+        months.append(f'{year}-{month}')
+
     month_count = collections.Counter(months)
     return month_count.most_common(1)[0][0]

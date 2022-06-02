@@ -6,13 +6,12 @@ from app import Food, app, foods
 
 @pytest.fixture
 def client():
-    client = TestClient(app)
-    return client
+    return TestClient(app)
 
 
 @pytest.fixture
 def food():
-    food = Food(
+    return Food(
         id=1,
         name="egg",
         serving_size="piece",
@@ -20,7 +19,6 @@ def food():
         protein_grams=6.3,
         fibre_grams=1,
     )
-    return food
 
 
 @pytest.fixture

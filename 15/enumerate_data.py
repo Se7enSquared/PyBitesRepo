@@ -10,7 +10,7 @@ def enumerate_names_countries():
       4. Dante      Argentina
       5. Martin     USA
       6. Rodolfo    Mexico"""
-   for i in range(0, len(names)):
+   for i in range(len(names)):
       print(f'{i+1}. {names[i]: <10} {countries[i]}')
 
 enumerate_names_countries()

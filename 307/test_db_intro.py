@@ -65,7 +65,7 @@ def test_wrong_pk():
 
 def test_insert(db):
     assert db.num_transactions == 4
-    query = f"SELECT * FROM ninjas;"
+    query = "SELECT * FROM ninjas;"
     output = db.cursor.execute(query).fetchall()
     assert output == NINJAS
 
@@ -74,8 +74,10 @@ def test_insert_twice(db):
     with pytest.raises(sqlite3.IntegrityError) as e:
         db.insert("ninjas", NINJAS)
 
-    assert str(e.value) in ("UNIQUE constraint failed: ninjas.ninja",
-                            "column ninja is not unique")
+    assert str(e.value) in {
+        "UNIQUE constraint failed: ninjas.ninja",
+        "column ninja is not unique",
+    }
 
 
 @pytest.mark.parametrize(

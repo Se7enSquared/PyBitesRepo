@@ -48,8 +48,7 @@ def gen_files(tempfile=tempfile):
         if is_dir == "True":
             list_of_directories.append(dir_value.lower())
 
-    for directory in list_of_directories:
-        yield directory
+    yield from list_of_directories
 
 
 def diehard_pybites(files=None):

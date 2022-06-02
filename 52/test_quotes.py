@@ -25,7 +25,7 @@ def test_get_quotes():
 
 
 def test_get_existing_quote():
-    response = client.get(API_ENDPOINT + "/2")
+    response = client.get(f"{API_ENDPOINT}/2")
     assert response.status_code == 200
 
     data = json.loads(response.get_data())
@@ -37,7 +37,7 @@ def test_get_existing_quote():
 
 
 def test_get_not_existing_quote():
-    response = client.get(API_ENDPOINT + "/4")
+    response = client.get(f"{API_ENDPOINT}/4")
     assert response.status_code == 404
 
 
@@ -81,10 +81,11 @@ def test_create_existing_quote():
 def test_update_quote():
     update_quote = dict(quote="You talking to me?!", movie="Taxi driver (1976)")
     response = client.put(
-        API_ENDPOINT + "/4",
+        f"{API_ENDPOINT}/4",
         data=json.dumps(update_quote),
         content_type="application/json",
     )
+
     assert response.status_code == 200
 
     data = json.loads(response.get_data())
@@ -97,30 +98,33 @@ def test_update_quote():
 def test_update_no_data():
     update_quote = {}
     response = client.put(
-        API_ENDPOINT + "/4",
+        f"{API_ENDPOINT}/4",
         data=json.dumps(update_quote),
         content_type="application/json",
     )
+
     assert response.status_code == 400
 
 
 def test_update_not_existing_quote():
     update_quote = dict(quote="You talking to me?!")
     response = client.put(
-        API_ENDPOINT + "/5",
+        f"{API_ENDPOINT}/5",
         data=json.dumps(update_quote),
         content_type="application/json",
     )
+
     assert response.status_code == 404
 
 
 def test_update_no_changes():
     update_quote = dict(quote="Get to the choppa!", movie="Predator")
     response = client.put(
-        API_ENDPOINT + "/2",
+        f"{API_ENDPOINT}/2",
         data=json.dumps(update_quote),
         content_type="application/json",
     )
+
     assert response.status_code == 200
 
     data = json.loads(response.get_data())
@@ -131,7 +135,7 @@ def test_update_no_changes():
 
 
 def test_delete_existing_quote():
-    response = client.delete(API_ENDPOINT + "/2")
+    response = client.delete(f"{API_ENDPOINT}/2")
     assert response.status_code == 204
 
     # number quotes from 4 to 3
@@ -142,5 +146,5 @@ def test_delete_existing_quote():
 
 
 def test_delete_not_existing_quote():
-    response = client.delete(API_ENDPOINT + "/5")
+    response = client.delete(f"{API_ENDPOINT}/5")
     assert response.status_code == 404

@@ -10,9 +10,7 @@ def generate_table(*args):
     combined_lists = list(zip(*args))
     final_list = []
     for tuples in combined_lists:
-        temp_string = ""
-        for item in tuples:
-            temp_string += str(item) + SEPARATOR
+        temp_string = "".join(str(item) + SEPARATOR for item in tuples)
         final_list.append(temp_string.strip(" | "))
     return final_list
 

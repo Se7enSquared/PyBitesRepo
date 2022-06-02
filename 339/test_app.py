@@ -23,8 +23,7 @@ EXPECTED_FOOD2 = {
 
 @pytest.fixture
 def client():
-    client = TestClient(app)
-    return client
+    return TestClient(app)
 
 
 @pytest.fixture(autouse=True)

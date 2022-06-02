@@ -11,7 +11,7 @@ import series as se
 @pytest.fixture()
 def float_series():
     """Returns a pandas Series containing floats"""
-    return pd.Series([float(n) / 1000 for n in range(0, 1001)])
+    return pd.Series([float(n) / 1000 for n in range(1001)])
 
 
 @pytest.fixture()

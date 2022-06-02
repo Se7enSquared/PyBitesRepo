@@ -89,10 +89,10 @@ def test_calculate_gc_content(dna, gc_content):
 
     assert calculate_gc_content(dna) == gc_content
 
-    dna_with_spaces = "".join([base + " " for base in dna])
+    dna_with_spaces = "".join([f"{base} " for base in dna])
     assert calculate_gc_content(dna_with_spaces) == gc_content
 
-    dna_with_special_chars = "".join([base + ".!?/," for base in dna])
+    dna_with_special_chars = "".join([f"{base}.!?/," for base in dna])
     assert calculate_gc_content(dna_with_special_chars) == gc_content
 
     dna_line_breaks = "\n" + dna + "\n" + dna + "\n"

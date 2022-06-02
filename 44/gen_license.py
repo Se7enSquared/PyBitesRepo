@@ -16,7 +16,7 @@ def gen_key(parts: int = 4, chars_per_part: int = 8) -> str:
 
     alphabet = string.ascii_uppercase + string.digits
     key = ''
-    for i in range(parts):
-        key += ''.join(secrets.choice(alphabet) for i in range(chars_per_part))
+    for _ in range(parts):
+        key += ''.join(secrets.choice(alphabet) for _ in range(chars_per_part))
         key += '-'
     return key[:-1]

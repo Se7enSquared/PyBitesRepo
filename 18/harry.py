@@ -23,10 +23,7 @@ def _filter_list(source_list, filter_out_list):
     return [x for x in source_list if x not in filter_out_list and x != '']
 
 def _remove_special_chars(word_list):
-    words = []
-    for word in word_list:
-        words.append(''.join(e for e in word if e.isalnum()))
-    return words
+    return [''.join(e for e in word if e.isalnum()) for word in word_list]
 
 def _process_lists():
     stop_list = _file_to_list(stopwords_file)

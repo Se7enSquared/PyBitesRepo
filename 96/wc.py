@@ -12,8 +12,7 @@ def wc(file_):
     with open(file_, 'r') as f:
         chars = f.read()
         lines = chars.splitlines()
-        for line in lines:
-            words.append(line.split())
+        words.extend(line.split() for line in lines)
         words = list(itertools.chain(*words))
         file_name = str(f.name).split('\\')[-1]
     return f'{len(lines)}\t{len(words)}\t{len(chars)}\t{file_name}'
