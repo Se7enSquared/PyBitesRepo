@@ -30,7 +30,7 @@ def test_iterator_islice(slice1, slice2):
 
 def test_equal_values_in_islice(slice1):
     for color in 'red green amber'.split():
-        assert sum(1 for state in slice1 if state.color == color) == 32
+        assert sum(state.color == color for state in slice1) == 32
 
 
 def test_return_types(slice2):

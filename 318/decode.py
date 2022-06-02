@@ -10,7 +10,4 @@ def get_credit_cards(data: bytes) -> List[str]:
     """
     decoded_data = base64.b64decode(data)
     decoded_data = decoded_data.decode('utf-8')
-    cc = []
-    for line in decoded_data.splitlines()[1:]:
-        cc.append(line.split(',')[-1])
-    return cc
+    return [line.split(',')[-1] for line in decoded_data.splitlines()[1:]]

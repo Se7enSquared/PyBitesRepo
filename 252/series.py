@@ -50,7 +50,4 @@ def get_every_second_indexes(ser: pd.Series, even_index=True) -> pd.core.series.
     If even_index is False return every index where idx % 2 != 0
     Assume default indexing i.e. 0 -> n
     """
-    if even_index == True:
-        return ser.iloc[::2]
-    else:
-        return ser.iloc[1::2]
+    return ser.iloc[::2] if even_index == True else ser.iloc[1::2]

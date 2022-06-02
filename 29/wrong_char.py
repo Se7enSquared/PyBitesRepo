@@ -3,12 +3,12 @@ import string
 
 def get_index_different_char(chars):
     char_list = list(string.ascii_lowercase + string.ascii_uppercase + string.digits)
-    
+
     numeric_count = 0
     non_numeric_count = 0
     numeric_char = []
     non_numeric_char = []
-    
+
     for c in chars:
         if str(c) in char_list:
             numeric_count += 1

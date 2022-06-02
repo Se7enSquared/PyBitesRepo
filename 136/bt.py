@@ -50,11 +50,13 @@ def check_bt(donor, recipient):
     if donor_type is not recipient_type:
         raise TypeError
     if donor_type is str:
-        if donor not in blood_type_text.keys() or recipient not in blood_type_text.keys():
+        if (
+            donor not in blood_type_text.keys()
+            or recipient not in blood_type_text.keys()
+        ):
             raise ValueError
-        else:
-            donor_bt = blood_type_text[donor].value
-            recipient_bt = blood_type_text[recipient].value
+        donor_bt = blood_type_text[donor].value
+        recipient_bt = blood_type_text[recipient].value
     elif donor_type is int:
         if donor < 0 or donor > 7 or recipient < 0 or recipient > 7:
             raise ValueError

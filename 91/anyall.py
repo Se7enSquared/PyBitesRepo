@@ -6,7 +6,7 @@ def contains_only_vowels(input_str):
    """Receives input string and checks if all chars are
    VOWELS. Match is case insensitive."""
    unique_chars = set(input_str.lower())
-   return len([x for x in unique_chars if x not in VOWELS]) == 0
+   return not [x for x in unique_chars if x not in VOWELS]
 
 
 def contains_any_py_chars(input_str):
@@ -19,7 +19,4 @@ def contains_digits(input_str):
    """Receives input string and checks if it contains
    one or more digits."""
    unique_chars = set(input_str.lower())
-   for char in unique_chars:
-      if char.isdigit():
-         return True
-   return False
+   return any(char.isdigit() for char in unique_chars)

@@ -15,13 +15,12 @@ def _verify_password(plain_password, hashed_password):
 
 @pytest.fixture
 def user():
-    user = User(id=1, username="user1", password=LAME_PASSWORD)
-    return user
+    return User(id=1, username="user1", password=LAME_PASSWORD)
 
 
 @pytest.fixture
 def food():
-    food = Food(
+    return Food(
         id=1,
         name="egg",
         serving_size="piece",
@@ -29,7 +28,6 @@ def food():
         protein_grams=6.3,
         fibre_grams=0,
     )
-    return food
 
 
 def test_create_user_object(user):

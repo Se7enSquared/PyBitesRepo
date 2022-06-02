@@ -42,5 +42,4 @@ def get_runtime(movie):
     a namedtuple object"""
 
     Movie = namedtuple('movie', 'runtime title')
-    m = Movie(int(movie['runtime'].split(' ')[0]), movie['title'])
-    return m
+    return Movie(int(movie['runtime'].split(' ')[0]), movie['title'])

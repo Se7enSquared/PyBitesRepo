@@ -8,10 +8,12 @@ def filter_names(names):
     for name in names:
         if name.startswith(QUIT_CHAR):
             break
-        if len(filtered_list) < MAX_NAMES:
-            if not name.startswith(IGNORE_CHAR):
-                if not _has_digit(name):
-                    filtered_list.append(name)
+        if (
+            len(filtered_list) < MAX_NAMES
+            and not name.startswith(IGNORE_CHAR)
+            and not _has_digit(name)
+        ):
+            filtered_list.append(name)
     return filtered_list
 
 def _has_digit(name):

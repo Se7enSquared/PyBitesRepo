@@ -8,9 +8,7 @@ def intersection(*args: Iterable) -> Set[Any]:
     for iter in filtered:
         iter = filter(lambda x: x != "", iter)
         iter_list.append(set(iter))
-    final = iter_list[0].intersection(*iter_list[1:])
-
-    return final
+    return iter_list[0].intersection(*iter_list[1:])
 
 
 print(

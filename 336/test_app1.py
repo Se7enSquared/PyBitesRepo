@@ -6,8 +6,7 @@ from app1 import app
 
 @pytest.fixture
 def client():
-    client = TestClient(app)
-    return client
+    return TestClient(app)
 
 
 def test_root_endpoint_with_get(client):

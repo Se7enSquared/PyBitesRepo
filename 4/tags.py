@@ -20,7 +20,6 @@ def get_pybites_top_tags(n=10):
     root = ET.fromstring(content)
     cat_list = []
     for item in root[0].findall('item'):
-        for category in item.findall('category'):
-            cat_list.append(category.text)
+        cat_list.extend(category.text for category in item.findall('category'))
     tag_count = Counter(cat_list)
     return tag_count.most_common(n)

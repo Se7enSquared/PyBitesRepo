@@ -20,7 +20,7 @@ def n_digit_numbers(numbers: List[T], n: int) -> List[int]:
         difference = n - len(num)
 
         if neg:
-            num = '-' + num
+            num = f'-{num}'
 
         multiplier = "1"
         if num == 0 or difference == 0:

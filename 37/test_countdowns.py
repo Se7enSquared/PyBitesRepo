@@ -17,8 +17,7 @@ time is up
 expected_other_start_arg = '''13
 12
 11
-'''
-expected_other_start_arg += expected
+''' + expected
 
 
 def test_countdown_for(capfd):

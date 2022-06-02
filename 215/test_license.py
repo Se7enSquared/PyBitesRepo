@@ -31,9 +31,9 @@ def test_invalid_license():
     assert not validate_license(lcase_key)
     shorter_key = pool[1][:-2]
     assert not validate_license(shorter_key)
-    longer_key = pool[2] + 'A'
+    longer_key = f'{pool[2]}A'
     assert not validate_license(longer_key)
-    wrong_prefix = 'AB-' + pool[3][3:]
+    wrong_prefix = f'AB-{pool[3][3:]}'
     assert not validate_license(wrong_prefix)
     empty_key = ''
     assert not validate_license(empty_key)

@@ -35,8 +35,8 @@ def get_movies_by_director():
                 score = float(row[25])
             except ValueError:
                 continue
-            if year and int(year) < MIN_YEAR:
-                    continue
+            if year and year < MIN_YEAR:
+                continue
             directors[director].append(Movie(title, year, score))
     return directors
 

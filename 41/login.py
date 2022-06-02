@@ -5,10 +5,7 @@ loggedin_users = ['mike', 'sue']
 def login_required(func):
     def wrapper(user):
         if user in known_users:
-            if user in loggedin_users:
-                return func(user)
-            else:
-                return 'please login'
+            return func(user) if user in loggedin_users else 'please login'
         else:
             return 'please create an account'
     wrapper.__doc__ = func.__doc__

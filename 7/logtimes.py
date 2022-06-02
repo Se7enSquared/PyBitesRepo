@@ -40,5 +40,4 @@ def time_between_shutdowns(loglines):
         action = " ".join(log_parts[3:]).strip("\n")
         if action == "Shutdown complete.":
             shutdowns.append(date_time)
-    delta = shutdowns[1] - shutdowns[0]
-    return delta
+    return shutdowns[1] - shutdowns[0]

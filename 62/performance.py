@@ -20,10 +20,7 @@ def timing(f):
 
 @timing
 def contains(sequence: List[int], num: int) -> bool:
-    for n in sequence:
-        if n == num:
-            return True
-    return False
+    return num in sequence
 
 
 @timing
@@ -43,10 +40,7 @@ def ordered_list_max_fast(sequence: List[int]) -> int:
 
 @timing
 def list_concat(sequence: List[str]) -> str:
-    bigstr = ''
-    for i in sequence:
-        bigstr += str(i)
-    return bigstr
+    return ''.join(str(i) for i in sequence)
 
 
 @timing
@@ -71,12 +65,9 @@ def list_inserts_fast(n: int) -> Deque[int]:
 
 @timing
 def list_creation(n: int) -> List[int]:
-    lst = []
-    for i in range(n):
-        lst.append(i)
-    return lst
+    return list(range(n))
 
 
 @timing
 def list_creation_fast(n: int) -> Generator[int, None, None]:
-    return (x for x in range(n))
+    return iter(range(n))

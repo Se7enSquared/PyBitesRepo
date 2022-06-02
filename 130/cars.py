@@ -16,7 +16,7 @@ def most_prolific_automaker(year):
     for entry in data:
         maker = entry['automaker']
         if int(entry["year"]) == year:
-            if maker in maker_counts.keys():
+            if maker in maker_counts:
                 maker_counts[maker] += 1
             else:
                 maker_counts[maker] = 1

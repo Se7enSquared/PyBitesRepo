@@ -8,8 +8,6 @@ def count_dirs_and_files(directory='.'):
     dir_list = []
     file_list = []
     for root, dirs, files in os.walk(directory):
-        for dir in dirs:
-            dir_list.append(dir)
-        for file in files:
-            file_list.append(file)
+        dir_list.extend(iter(dirs))
+        file_list.extend(iter(files))
     return (len(dir_list), len(file_list))

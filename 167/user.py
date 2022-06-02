@@ -13,7 +13,7 @@ class User:
         """Return first separated by a whitespace
         and using title case for both.
         """
-        return self.first_name.title() + ' ' + self.last_name.title()
+        return f'{self.first_name.title()} {self.last_name.title()}'
 
     @property
     def username(self):

@@ -44,11 +44,8 @@ def get_quote(qid):
 @app.route("/api/quotes", methods=["POST"])
 def create_quote():
 
-    if request.json == {}:
+    if request.json == {} or len(request.json) < ARGUMENT_COUNT:
         abort(400)
-    elif len(request.json) < ARGUMENT_COUNT:
-        abort(400)
-
     for quote in quotes:
         if (
             quote["quote"] == request.json["quote"]
@@ -80,10 +77,7 @@ def update_quote(qid):
 
 @app.route("/api/quotes/<int:qid>", methods=["DELETE"])
 def delete_quote(qid):
-    found = False
-    for quote in quotes:
-        if quote["id"] == qid:
-            found = True
+    found = any(quote["id"] == qid for quote in quotes)
     if not found:
         abort(404)
 

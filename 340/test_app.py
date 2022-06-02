@@ -9,8 +9,7 @@ from app import app
 
 @pytest.fixture
 def client():
-    client = TestClient(app)
-    return client
+    return TestClient(app)
 
 
 @pytest.fixture(autouse=True)

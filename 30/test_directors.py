@@ -42,7 +42,7 @@ def test_get_average_scores_top_directors(scores):
                 ('Stanley Kubrick', 8.0),
                 ('James Cameron', 7.9),
                 ('Joss Whedon', 7.9)]
-    assert scores[0:8] == expected
+    assert scores[:8] == expected
 
 
 @pytest.mark.parametrize("director", [

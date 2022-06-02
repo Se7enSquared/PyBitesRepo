@@ -3,8 +3,7 @@ def transpose(data):
     if isinstance(data, dict):
         keys = tuple(data.keys())
         values = tuple(data.values())
-        output.append(keys)
-        output.append(values)
+        output.extend((keys, values))
     else:
         names = []
         since_days = []
@@ -15,8 +14,13 @@ def transpose(data):
             since_days.append(member.since_days)
             karma_points.append(member.karma_points)
             bitecoin_earned.append(member.bitecoin_earned)
-        output.append(tuple(names))
-        output.append(tuple(since_days))
-        output.append(tuple(karma_points))
-        output.append(tuple(bitecoin_earned))
+        output.extend(
+            (
+                tuple(names),
+                tuple(since_days),
+                tuple(karma_points),
+                tuple(bitecoin_earned),
+            )
+        )
+
     return output

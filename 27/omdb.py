@@ -23,7 +23,7 @@ def get_movie_most_nominations(movies: list) -> str:
     max_nom_title = ''
     for movie in movies:
         re_group = re.search(r'(\d+)+ nominations', movie['Awards'])
-        nominations = int(re_group.group(1))
+        nominations = int(re_group[1])
         if nominations >= max_noms:
             max_noms = nominations
             max_nom_title = movie['Title']
