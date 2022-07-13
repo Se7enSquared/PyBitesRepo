@@ -29,22 +29,14 @@ earnings_mln = [
     {"name": "Jackie Chan", "earnings": 49},
 ]
 
-def _prep_list(lst, n):
-    lst.sort(reverse=True)
-    return lst[:n]
-
 
 def get_largest_number(numbers, n=3):
-    heapq.heapify(numbers)
     return heapq.nlargest(n, numbers)
 
 
 def get_latest_dates(dates, n=3):
-    top_n_dates = _prep_list(dates, n)
-    heapq.heapify(top_n_dates)
-    return heapq.nlargest(n, top_n_dates)
+    return heapq.nlargest(n, dates)
 
 
 def get_highest_earnings(earnings_mln, n=3):
-    return heapq.nlargest(n, earnings_mln, key=lambda x: x['earnings'])
-
+    return heapq.nlargest(n, earnings_mln, key=lambda x: x["earnings"])
